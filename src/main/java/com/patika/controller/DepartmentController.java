@@ -1,12 +1,15 @@
 package com.patika.controller;
 
 import com.patika.dto.request.DepartmentRequestDto;
+import com.patika.dto.request.UpdateDepartmentDto;
 import com.patika.dto.response.PatikaResponse;
 import com.patika.entity.Department;
 import com.patika.service.DepartmentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 //http://localhost:8080/department/save
 //http://localhost:8080/department/getAllDeps
@@ -35,8 +38,6 @@ public class DepartmentController {
                return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
            }
 
-
-
     }
     @GetMapping("/{id}")
     public ResponseEntity<DepartmentRequestDto> getDepartmentById(@PathVariable Long id){
@@ -60,7 +61,29 @@ public class DepartmentController {
             response.setSuccess(false);
             return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
+    }
+    @PutMapping
+    public ResponseEntity<PatikaResponse> updateDepartment(@RequestBody UpdateDepartmentDto updateDepartmentDto){
+        PatikaResponse response = new PatikaResponse();
+        try {
 
+            departmentService.updateDepartment(updateDepartmentDto);
+
+            response.setMessage("Department successfully updated");
+            response.setSuccess(true);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }catch (IllegalArgumentException e){
+            response.setMessage(e.getMessage());
+            response.setSuccess(false);
+            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        }
     }
 
+    @GetMapping
+    public ResponseEntity<List<DepartmentRequestDto>> getDepartmentAll(){
+        List<DepartmentRequestDto> dtoList =  departmentService.getAllDepartments();
+
+        return new ResponseEntity<>(dtoList, HttpStatus.OK);
+
+    }
 }
