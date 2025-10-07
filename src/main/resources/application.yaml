@@ -13,3 +13,6 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     properties:
       '[hibernate.format_sql]': true
+logging:
+  config:
+    classpath: logback-spring.xml

@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
     //ResourceNotFoundException
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<Object> handleResourceNotFoundException(
-            ConflictException ex, WebRequest request){
+            ResourceNotFoundException ex, WebRequest request){
 
         ApiResponseError error = new ApiResponseError(HttpStatus.NOT_FOUND,ex.getMessage(),request.getDescription(false));
 
@@ -31,7 +31,7 @@ public class GlobalExceptionHandler {
     }
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleGeneralException(
-            ConflictException ex, WebRequest request){
+            Exception ex, WebRequest request){
 
         ApiResponseError error = new ApiResponseError(
                 HttpStatus.INTERNAL_SERVER_ERROR,
