@@ -26,7 +26,7 @@ public class Student extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "connection_id")
     private Connection connection;
 

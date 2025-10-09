@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ConnectionRepository extends JpaRepository<Connection, Long> {
     Connection findByEmail(@Email String email);
+    boolean existsByEmail(String email);
+
 }
