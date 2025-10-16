@@ -4,4 +4,5 @@ public class ResponseMessage {
     public final static String ENTITY_SAVED ="ENTITY SAVED SUCCESSFULLY";
     public final static String ENTITY_UPDATED ="ENTITY UPDATED SUCCESSFULLY";
     public final static String ENTITY_REMOVED ="ENTITY REMOVED SUCCESSFULLY";
+    public final static String IMAGE_SAVED_RESPONSE_MESSAGE ="IMAGE SAVED SUCCESSFULLY";
 }

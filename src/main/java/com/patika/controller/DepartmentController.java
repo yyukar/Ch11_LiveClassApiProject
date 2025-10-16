@@ -5,16 +5,17 @@ import com.patika.dto.request.UpdateDepartmentDto;
 import com.patika.dto.response.PatikaResponse;
 import com.patika.entity.Department;
 import com.patika.service.DepartmentService;
+import jakarta.annotation.security.RolesAllowed;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//http://localhost:8080/department/save
-//http://localhost:8080/department/getAllDeps
+
 @RestController
 @RequestMapping("/department")
+@RolesAllowed({"ROLE_ADMIN"})
 public class DepartmentController {
     private final DepartmentService departmentService;
 

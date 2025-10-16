@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Getter
 @Entity
 @Setter
@@ -34,6 +36,10 @@ public class Student extends BaseEntity{
     @ManyToOne
     @JoinColumn(name = "department_id")
     private Department department;
+
+    @OneToMany(cascade = CascadeType.ALL)//student silindiğinde bağlı image'ler de silinsin
+    @JoinColumn(name="student_id")
+    private Set<ImageFile> images;
 
 
 

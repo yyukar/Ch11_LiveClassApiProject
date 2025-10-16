@@ -5,6 +5,7 @@ import com.patika.dto.request.StudentDto;
 import com.patika.dto.response.PatikaResponse;
 import com.patika.exception.message.ResponseMessage;
 import com.patika.service.StudentService;
+import jakarta.annotation.security.RolesAllowed;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/student")
+@RolesAllowed({"ROLE_ADMIN","ROLE_EMPLOYEE"})
 public class StudentController {
     private final StudentService studentService;
 
@@ -57,11 +59,11 @@ public class StudentController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
 
     }
-    @PostMapping("/create")
-    public ResponseEntity<PatikaResponse> saveStudentwithConnection(@RequestBody StudentConnectionDto studentDto){
+    @PostMapping("/create/{imageId}")
+    public ResponseEntity<PatikaResponse> saveStudentwithConnection(@PathVariable String imageId ,@RequestBody StudentConnectionDto studentDto){
         PatikaResponse response = new PatikaResponse();
 
-        studentService.saveStudent2(studentDto);
+        studentService.saveStudent2(imageId,studentDto);
 
         response.setMessage(ResponseMessage.ENTITY_SAVED);
         response.setSuccess(true);

@@ -15,7 +15,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         this.userService = userService;
     }
 
-
     //email ile User bulup, user-> UserDetails'e çevirir
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {

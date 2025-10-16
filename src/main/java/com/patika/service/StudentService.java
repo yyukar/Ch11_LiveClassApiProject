@@ -4,6 +4,7 @@ import com.patika.dto.request.StudentConnectionDto;
 import com.patika.dto.request.StudentDto;
 import com.patika.entity.Connection;
 import com.patika.entity.Department;
+import com.patika.entity.ImageFile;
 import com.patika.entity.Student;
 import com.patika.enums.Status;
 import com.patika.exception.ConflictException;
@@ -19,7 +20,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class StudentService {
@@ -27,10 +30,13 @@ public class StudentService {
     private final ConnectionRepository connectionRepository;
     private final DepartmentRepository departmentRepository;
 
-    public StudentService(StudentRepository studentRepository, ConnectionRepository connectionRepository, DepartmentRepository departmentRepository) {
+    private final ImageService imageService;
+
+    public StudentService(StudentRepository studentRepository, ConnectionRepository connectionRepository, DepartmentRepository departmentRepository, ImageService imageService) {
         this.studentRepository = studentRepository;
         this.connectionRepository = connectionRepository;
         this.departmentRepository = departmentRepository;
+        this.imageService = imageService;
     }
 
     public void saveStudent(StudentDto studentDto) {
@@ -111,7 +117,7 @@ public class StudentService {
     }
 
     @Transactional
-    public void saveStudent2(StudentConnectionDto studentDto) {
+    public void saveStudent2(String imageId, StudentConnectionDto studentDto) {
         if (connectionRepository.existsByEmail(studentDto.getConnectionStudent().getEmail())){
             throw new ConflictException(String.format(ErrorMessage.RESOURCE_ALREADY_EXISTS, studentDto.getConnectionStudent().getEmail()));
         }
@@ -132,6 +138,17 @@ public class StudentService {
         );
         student.setDepartment(department);
 
+
+        ImageFile imageFile = imageService.getImageById(imageId);
+       Integer usedCount = studentRepository.findStudentCountByImageId(imageId);
+
+       if (usedCount>0){
+           throw new ConflictException(ErrorMessage.RESOURCE_ALREADY_EXISTS);
+       }
+
+       Set<ImageFile> imFiles = new HashSet<>();
+       imFiles.add(imageFile);
+       student.setImages(imFiles);
 
         studentRepository.save(student);
 

@@ -1,0 +1,459 @@
+{
+	"info": {
+		"_postman_id": "4d190945-4cfd-4f26-a5e8-dbab16895f33",
+		"name": "ch11_apiProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28991206"
+	},
+	"item": [
+		{
+			"name": "department",
+			"item": [
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n    \"departmentName\" :\"turkish\",\r\n    \"departmentCode\" : \"T02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/department/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"department",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getDepartment",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n    \"departmentName\" :\"turkish\",\r\n    \"departmentCode\" : \"T02\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/department/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"department",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n    \"departmentName\" :\"turkish\",\r\n    \"departmentCode\" : \"T02\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/department",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"department"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteDepartment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n    \"departmentName\" :\"turkish\",\r\n    \"departmentCode\" : \"T02\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/department/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"department",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateDep",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"id\" : 4,\r\n    \"departmentName\" :\"COMP\",\r\n    \"departmentCode\" : \"CP02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/department",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"department"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "connection",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"email\" :\"mesut@patika.com\",\r\n    \"mobileNumber\" : \"0507XXXxxxx\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/connection",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"connection"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "student",
+			"item": [
+				{
+					"name": "saveStudent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"email\" :\"mesut@patika.com\",\r\n    \"mobileNumber\" : \"0507XXXxxxx\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/student",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"email\" :\"mesut@patika.com\",\r\n    \"mobileNumber\" : \"0507XXXxxxx\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/student",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveStudent Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"ayşe\",\r\n   \r\n    \"gender\": \"FEMALE\",\r\n    \"connectionId\": 2,\r\n    \"departmentId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/student/44",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"44"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patch",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"ayşe\",\r\n   \r\n    \"gender\": \"FEMALE\",\r\n    \"connectionId\": 2,\r\n    \"departmentId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/student/44",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"44"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletyeStudent",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"ayşe\",\r\n   \r\n    \"gender\": \"FEMALE\",\r\n    \"connectionId\": 2,\r\n    \"departmentId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/student/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "getByDepartmentId",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "imageFile",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZXN1dEBwYXRpa2EiLCJleHAiOjE3NjA3MTk5MzF9.9reUgj5-hePvLwG1nzEggx764V9i-eWr5RTGXd81KfmQIY2X65UpQccPn-MNSmPpVl8A5gHTrHI6522Tvhhbag",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/mstgd/Desktop/student.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/image/upload?file",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"upload"
+							],
+							"query": [
+								{
+									"key": "file",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "display",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZXN1dEBwYXRpa2EiLCJleHAiOjE3NjA3MTk5MzF9.9reUgj5-hePvLwG1nzEggx764V9i-eWr5RTGXd81KfmQIY2X65UpQccPn-MNSmPpVl8A5gHTrHI6522Tvhhbag",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/mstgd/Desktop/student.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/image/display/4028810599edffcc0199ee024add0000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"display",
+								"4028810599edffcc0199ee024add0000"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"mesut@patika\",\r\n  \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
