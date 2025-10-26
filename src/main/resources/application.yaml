@@ -2,9 +2,9 @@ server:
   port: 8080
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/Ch11_LiveClassApiProject
-    username: patika_user
-    password: 1234
+    url: jdbc:postgresql://localhost:5432/ch11_liveclassapiproject
+    username: postgres
+    password: postgres
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
